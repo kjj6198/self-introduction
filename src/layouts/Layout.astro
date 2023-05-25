@@ -1,36 +1,50 @@
 ---
+import "./styles/reset.css";
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  :root {
+    --top-background: #2a2a2a;
+    --background: #f3e9e4;
+    --header: #4b4b4b;
+    --text: #4b4b4b;
+    --text-main: #3c3c46;
+    --main: #f3e9e4;
+    --sub: #9a8c98;
+    --highlight: #c9ada7;
+    --code: #786d70;
+    --border: #edd6d1;
+    --tag: #8dbfef;
+    --font-zh: "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+    --font-monospace: "IBM Plex Mono", "Cascadia Code", MonoLisa, FiraCode,
+      "Jetbrains Mono", Operator Mono, Monaco, Menlo, monospace;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: var(--background);
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
 </style>

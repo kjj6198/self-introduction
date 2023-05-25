@@ -1,81 +1,515 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import * as markdown from "../content/introduction.md";
+import Layout from "../layouts/Layout.astro";
+const { Content } = markdown;
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="愷開 | 自我介紹">
+  <main>
+    <article class="weeklyContainer">
+      <Content />
+    </article>
+  </main>
 </Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
+<style is:global>
+  main {
+    max-width: 1080px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  .card {
+    position: relative;
+    padding: 2.2rem;
+    background-color: #fff;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 2px 18px rgba(200, 200, 200, 0.8);
+    color: var(--text-main);
+    line-height: 1.71;
+  }
+
+  .card::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--sub);
+  }
+
+  .weeklyContainer .astro-code {
+    border-radius: 2px;
+    padding: 10px;
+  }
+
+  .weeklyContainer .tag {
+    display: inline-block;
+    background: #535353;
+    border-bottom: 1px solid #434343;
+    border-radius: 5px;
+    margin-right: 4px;
+    padding: 7px;
+    font-size: 0.8rem;
+    color: #fff;
+    font-weight: normal;
+    line-height: 1;
+    vertical-align: bottom;
+  }
+
+  /* Use for typography */
+  .weeklyContainer {
+    color: var(--text-main);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .weeklyContainer ruby > rt {
+    font-size: 12px;
+  }
+
+  .weeklyContainer iframe {
+    width: 100%;
+    height: 650px;
+    background: white;
+    margin: 1.5em 0;
+  }
+
+  .weeklyContainer ol li {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin-bottom: 0.75em;
+  }
+
+  .weeklyContainer ul li {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-bottom: 0.75em;
+  }
+
+  .weeklyContainer li li {
+    margin-bottom: 0;
+  }
+
+  .weeklyContainer blockquote,
+  .weeklyContainer q {
+    quotes: none;
+  }
+
+  .weeklyContainer blockquote:before,
+  .weeklyContainer blockquote:after,
+  .weeklyContainer q:before,
+  .weeklyContainer q:after {
+    content: "";
+    content: none;
+  }
+
+  .weeklyContainer table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .weeklyContainer .note {
+    position: relative;
+    padding: 12px 20px 12px 24px;
+    margin: 2em 0;
+    border-left: 4px solid #209995;
+    background-color: #eaeaea;
+    line-height: 1.4;
+  }
+
+  .weeklyContainer h1 {
+    font-size: 1.675em;
+    /*30 / 16*/
+    line-height: 1.6em;
+    /* 48 / 30*/
+    margin-top: 0.5em;
+    font-weight: bold;
+  }
+
+  .weeklyContainer h2,
+  .weeklyContainer h3 {
+    padding-bottom: 0.25em;
+    /*21 / 16*/
+    line-height: 1.15;
+    /*48 / 21*/
+    margin-bottom: 0;
+    /*24 / 21*/
+  }
+
+  .weeklyContainer h2:not(:first-of-type),
+  .weeklyContainer h3:not(:first-of-type) {
+    margin-top: 1.5em;
+  }
+
+  .weeklyContainer h2:hover :global(.icon.icon-link::before) {
+    display: inline-block;
+  }
+
+  .weeklyContainer :global(.icon.icon-link::before) {
+    content: "#";
+    display: none;
+    margin-left: 4px;
+  }
+
+  .weeklyContainer h2 {
+    font-size: 1.55em;
+  }
+
+  .weeklyContainer h3 {
+    font-size: 1.4em;
+    border: none;
+  }
+
+  .weeklyContainer h4 {
+    font-size: 1.225em;
+    /*18 / 16*/
+    margin-top: 1.3em;
+    margin-bottom: 0;
+    letter-spacing: -0.03em;
+    /*48 / 18*/
+  }
+
+  .weeklyContainer h5,
+  .weeklyContainer h6 {
+    font-size: 1em;
+    /*16*/
+  }
+
+  .weeklyContainer h1 {
+    margin-bottom: 1.6em;
+    padding-bottom: 5px;
+  }
+
+  /* links */
+  .weeklyContainer blockquote > p {
+    margin: 0;
+  }
+
+  .weeklyContainer blockquote {
+    margin-bottom: 0;
+  }
+
+  .weeklyContainer blockquote ~ p {
+    margin-top: 1em;
+  }
+
+  .weeklyContainer blockquote + blockquote {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .weeklyContainer a[href^="#"] {
+    color: var(--text-main);
+  }
+
+  .weeklyContainer a:not([href^="#"]) {
+    text-decoration: none;
+    font-weight: inherit;
+    color: inherit;
+    background-image: linear-gradient(
+      to right,
+      currentColor 0%,
+      currentColor 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: left bottom;
+  }
+
+  .weeklyContainer a:hover,
+  .weeklyContainer a:active {
+    opacity: 0.7;
+  }
+
+  .weeklyContainer p {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    margin-bottom: 1rem;
+    word-break: break-word;
+  }
+
+  .weeklyContainer video {
+    display: block;
+    max-width: 75%;
+    max-height: 720px;
+    margin: 0 auto;
+  }
+
+  .weeklyContainer blockquote {
+    font-style: italic;
+    border-left: 5px solid;
+    margin-left: 2em;
+    padding-left: 1em;
+    font-size: 1.15em;
+  }
+
+  .weeklyContainer blockquote > p {
+    font-family: "PT Serif", "Times New Roman", Times, serif;
+  }
+
+  .weeklyContainer ul {
+    padding-left: 0;
+  }
+
+  .weeklyContainer ul,
+  .weeklyContainer ol {
+    margin: 0 0 1.5em 1.5em;
+  }
+
+  .weeklyContainer table {
+    margin-bottom: 1.5em;
+    /*24 / 16*/
+    font-size: 1em;
+    /* width: 100%; */
+  }
+
+  .weeklyContainer thead th,
+  .weeklyContainer tfoot th {
+    padding: 0.25em 0.25em 0.25em 0.4em;
+  }
+
+  .weeklyContainer th {
+    text-align: left;
+  }
+
+  .weeklyContainer td {
+    vertical-align: top;
+    padding: 0.25em 0.25em 0.25em 0.4em;
+  }
+
+  .weeklyContainer pre > code {
+    color: var(--color-text-guide);
+  }
+
+  .weeklyContainer ol code,
+  .weeklyContainer ul code,
+  .weeklyContainer p code {
+    color: #ffffff;
+    line-height: 1;
+    font-size: 90%;
+    padding: 2px 5px;
+    margin: 0 0.1em;
+    background: var(--code);
+    font-family: var(--font-monospace);
+    border-radius: 2px;
+  }
+
+  .weeklyContainer img {
+    max-width: 100%;
+  }
+
+  .weeklyContainer :global(.code-container) {
+    position: relative;
+    margin: 1.5em 0;
+    background-color: #2e3440;
+  }
+
+  .weeklyContainer :global(.code-container)::before {
+    font-family: Menlo, Monaco;
+    font-size: 12px;
+    padding: 4px;
+    line-height: 1;
+    background-color: #f7df1e;
+    font-weight: bold;
+    content: attr(data-language);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    text-transform: uppercase;
+    color: var(--color-code-lang);
+  }
+
+  .weeklyContainer
+    :global(.code-container[data-language="javascript"])::before {
+    content: "JS";
+  }
+
+  .weeklyContainer
+    :global(.code-container[data-language="typescript"])::before {
+    content: "TS";
+  }
+
+  .weeklyContainer :global(.code-container[data-language="golang"])::before {
+    content: "GO";
+  }
+
+  .weeklyContainer :global(.code-container[data-language="null"])::before {
+    content: "PLAIN";
+  }
+
+  .weeklyContainer :global(.code-container) code {
+    font-family: var(--font-monospace);
+    color: #fff;
+    font-size: 0.9m;
+  }
+
+  .weeklyContainer :global(.shiki) {
+    padding: 20px;
+    padding-top: 35px;
+    overflow-x: auto;
+    border-radius: var(--border-radius-shiki);
+  }
+
+  .weeklyContainer sup {
+    font-size: 1em;
+  }
+
+  .weeklyContainer sup > a:before {
+    color: currentColor;
+    content: "[";
+  }
+
+  .weeklyContainer sup > a:after {
+    content: "]";
+  }
+
+  .weeklyContainer .code-container > code {
+    background-color: initial;
+    padding-left: initial;
+    padding-right: initial;
+  }
+
+  .weeklyContainer code pre,
+  .weeklyContainer code,
+  .weeklyContainer tt {
+    font-size: 0.875em;
+    line-height: 1.714285em;
+  }
+
+  .weeklyContainer h1 {
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+  }
+
+  .weeklyContainer h3 + ul,
+  .weeklyContainer h4 + ul,
+  .weeklyContainer h5 + ul,
+  .weeklyContainer h6 + ul,
+  .weeklyContainer h3 + ol,
+  .weeklyContainer h4 + ol,
+  .weeklyContainer h5 + ol,
+  .weeklyContainer h6 + ol {
+    margin-top: 0.5em;
+  }
+
+  .weeklyContainer li > ul,
+  .weeklyContainer li > ol {
+    margin-top: inherit;
+    margin-bottom: 0;
+  }
+
+  .weeklyContainer li li {
+    list-style-type: lower-alpha;
+  }
+
+  .weeklyContainer li li li {
+    list-style-type: lower-roman;
+  }
+
+  .weeklyContainer li > blockquote {
+    margin-bottom: 0;
+  }
+
+  /* &[data-language="javascript"]:before {
+		content: "js";
 	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
+
+	&[data-language="golang"]:before {
+		content: "go";
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
+
+	&:before {
+		font-family: Menlo, Manaco;
+		font-size: 14px;
+		padding: 4px;
+		background-color: #f7df1e;
 		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+		content: attr(data-language);
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		text-transform: uppercase; */
+  /* } */
+
+  .weeklyContainer h2,
+  .weeklyContainer h3 {
+    margin-bottom: 0.75em;
+  }
+
+  .weeklyContainer hr {
+    border: 2px solid #444;
+    margin: 100px auto;
+    width: 80px;
+  }
+
+  .weeklyContainer h1 {
+    border-color: #c5c5c5;
+  }
+
+  .weeklyContainer blockquote {
+    border-color: #bababa;
+    color: var(--color-text-secondary);
+  }
+
+  .weeklyContainer figure {
+    margin: 2em 0;
+  }
+
+  .weeklyContainer figure.full {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .weeklyContainer figure.large {
+    margin-left: -10%;
+    margin-right: -10%;
+  }
+
+  .weeklyContainer figure > figcaption {
+    caption-side: bottom;
+    font-size: 16px;
+    color: #656565;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 60rem) {
+    figure.full {
+      position: static;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    figure.large {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .weeklyContainer thead {
+    background-color: #dadada;
+  }
+
+  .weeklyContainer tr:nth-child(even) {
+    background: #e8e7e7;
+  }
+
+  .weeklyContainer a:not(:where([href^="#"], [href*="//blog.kalan.dev"]), [href^="/"]):after
+  {
+    content: "↗️";
+    font-size: 0.6em;
+  }
 </style>
