@@ -1,6 +1,6 @@
-![kalanyei-nocode](https://dnf7fm7877tpg.cloudfront.net/images/9BeShHtoYgKbe18FFwiB2P.jpg)
-
 <section class="card">
+
+<img width="150" height="150" style="border-radius: 50%" src="https://dnf7fm7877tpg.cloudfront.net/images/9BeShHtoYgKbe18FFwiB2P.jpg" alt="Kalan 的 8bit 照片" />
 
 ## 簡介
 
